@@ -1,16 +1,16 @@
 #pragma once
 
 enum class PieceType {
-    Roi, Dame, Tour, Fou, Cavalier, Pion
+    King, Queen, Rook, Bishop, Knight, Pawn
 };
 
 enum class PieceColor {
-    Blanc, Noir
+    White, Black
 };
 
 struct Piece {
     PieceType type;
-    PieceColor couleur;
+    PieceColor color;
 
-    Piece(PieceType t, PieceColor c) : type(t), couleur(c) {}
+    Piece(PieceType t, PieceColor c) : type(t), color(c) {}
 };

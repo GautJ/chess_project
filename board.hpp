@@ -5,11 +5,11 @@
 
 class Board {
 private:
-    std::vector<std::vector<std::optional<Piece>>> plateau;
+    std::vector<std::vector<std::optional<Piece>>> grid;
 
 public:
     Board();
 
-    void afficher() const;
-    void initialiser();
+    void display() const;
+    void initialize();
 };

@@ -3,7 +3,7 @@
 
 int main() {
     Board board;
-    board.afficher();
+    board.display();
 
     return 0;
 }

@@ -2,29 +2,28 @@
 #include <iostream>
 
 Board::Board() {
-    plateau.resize(8, std::vector<std::optional<Piece>>(8, std::nullopt));
-    initialiser();
+    grid.resize(8, std::vector<std::optional<Piece>>(8, std::nullopt));
+    initialize();
 }
 
-void Board::initialiser() {
-    // Pour l’instant, on place juste les pions pour test
+void Board::initialize() {
     for (int i = 0; i < 8; ++i) {
-        plateau[1][i] = Piece(PieceType::Pion, PieceColor::Noir);
-        plateau[6][i] = Piece(PieceType::Pion, PieceColor::Blanc);
+        grid[1][i] = Piece(PieceType::Pawn, PieceColor::Black);
+        grid[6][i] = Piece(PieceType::Pawn, PieceColor::White);
     }
 }
 
-void Board::afficher() const {
+void Board::display() const {
     for (int i = 0; i < 8; ++i) {
         std::cout << 8 - i << " ";
         for (int j = 0; j < 8; ++j) {
-            if (plateau[i][j].has_value()) {
+            if (grid[i][j].has_value()) {
                 char c;
-                switch (plateau[i][j]->type) {
-                    case PieceType::Pion: c = 'P'; break;
+                switch (grid[i][j]->type) {
+                    case PieceType::Pawn: c = 'P'; break;
                     default: c = '?'; break;
                 }
-                if (plateau[i][j]->couleur == PieceColor::Noir)
+                if (grid[i][j]->color == PieceColor::Black)
                     c = tolower(c);
                 std::cout << c << " ";
             } else {
